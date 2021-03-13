@@ -24,7 +24,7 @@ const SummaryStep: React.FC<SummaryStepProps> = (props) => {
                 name = 'Editar'
             />    
         </div>
-        <div className='link-container'><Link to='/'>Purchase</Link></div>
+        <div className='link-container'><Link to='/purchased=dev_ins'>Purchase</Link></div>
     </>;
 };
 
