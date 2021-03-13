@@ -1,4 +1,5 @@
 
+import '../shared/components/buyFlow//input.css';
 interface Props {
     id: string,
     name: string,
@@ -13,8 +14,10 @@ interface Props {
 
 export const  FormInput = (props:Props) => (
     <>
+    <div className='input-field-container'>
         <label>{props.label} </label>
         <input
+            className={ props.errorMessage && 'error'}
             id={props.id}
             type={props.type}
             name={props.name}
@@ -22,8 +25,9 @@ export const  FormInput = (props:Props) => (
             onChange={props.onChange}
             placeholder={props.placeholder}
             />
+    </div>
         
-        {props.errorMessage && <p>{props.errorMessage}</p>}
+        {props.errorMessage && <p className="error">{props.errorMessage}</p>}
     </>
 )
 

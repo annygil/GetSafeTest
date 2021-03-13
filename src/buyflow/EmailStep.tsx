@@ -30,7 +30,7 @@ const EmailStep: React.FC<EmailStepProps> = ( props ) => {
         <ButtonNext
             onClick={handleNextStep} 
             disabled={values.email.length>0 && errors.emailError?.length==0 ? false : true}
-            name='Next'
+            name='Continue  '
         />
     </>;
 };

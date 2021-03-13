@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import '../shared/components/buyFlow/SummaryStep.css'
 interface SummaryStepProps {
-    collectedData: {
+    collectedData:{
         email: string,
-        age: number,
+        age: number
     },
 };
 
