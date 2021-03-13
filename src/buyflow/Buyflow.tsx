@@ -29,20 +29,21 @@ const Buyflow: React.FC<BuyflowProps> = (props) => {
         }
     );
     switch (currentStep) {
+        
         case 'email':
             return <>
                 <h4>Buying {PRODUCT_IDS_TO_NAMES[props.productId]}</h4>
-                <EmailStep cb={getStepCallback('age')} />
+                <EmailStep collectedData={ collectedData } cb={getStepCallback('age')} />
             </>;
         case 'age':
             return <>
                 <h4>Buying {PRODUCT_IDS_TO_NAMES[props.productId]}</h4>
-                <AgeStep  cb={getStepCallback('summary')} />
+                <AgeStep  collectedData={ collectedData } cb={getStepCallback('summary')} />
             </>;
         case 'summary':
             return <>
                 <h4>Buying {PRODUCT_IDS_TO_NAMES[props.productId]}</h4>
-                <SummaryStep collectedData={collectedData} />
+                <SummaryStep collectedData={ collectedData }  cb={getStepCallback('email')}/>
             </>;
         default:
             return <>

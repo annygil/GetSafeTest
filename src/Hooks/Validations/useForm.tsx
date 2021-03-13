@@ -10,11 +10,8 @@ const initialValues:errors= {
 }
 
 
-const useForm = ( validate: any ) => {
-    const [values, setValues] = useState({
-        email:'',
-        age:0
-    })
+const useForm = ( validate: any, _values: any ) => {
+    const [values, setValues] = useState(_values)
     const [errors,setErrors] = useState(initialValues);
 
 
@@ -31,6 +28,6 @@ const useForm = ( validate: any ) => {
         return e.target.value;
     }
 
-    return { handleError, values, errors }
+    return { handleError, values,  errors }
 }
 export default useForm

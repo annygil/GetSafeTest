@@ -5,11 +5,15 @@ import { FormInput } from './../components/FormInput';
 import { ButtonNext } from './../components/ButtonNext';
 interface EmailStepProps {
     cb: (field: string, value: string) => void,
+    collectedData:{
+        email: string,
+        age: number
+    },
 }
 
 
 const EmailStep: React.FC<EmailStepProps> = ( props ) => {
-    const { handleError, values, errors } = useForm( validate );
+    const { handleError, values, errors } = useForm( validate , props.collectedData);
 
     const handleNextStep = () => {
         if( values.email.length > 0 && errors.emailError?.length === 0){

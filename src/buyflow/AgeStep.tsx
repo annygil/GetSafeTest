@@ -5,10 +5,14 @@ import { FormInput } from './../components/FormInput';
 import { ButtonNext } from './../components/ButtonNext';
 interface AgeStepProps {
     cb: (field: string, value: number) => void,
+    collectedData:{
+        email: string,
+        age: number
+    },
 }
 
 const AgeStep: React.FC<AgeStepProps> = (props) => {
-    const { handleError, values, errors } = useForm( validate );
+    const { handleError, values, errors } = useForm( validate , props.collectedData);
     const handleNextStep = () => {
         if( values.age.toString().length > 0 && errors.ageError?.length === 0 ){
             props.cb('age', values.age)
@@ -27,7 +31,7 @@ const AgeStep: React.FC<AgeStepProps> = (props) => {
         <ButtonNext
             onClick={ handleNextStep } 
             disabled={ (values.age > 10 && errors.ageError?.length === 0) ? false : true }
-            name='Next'
+            name='Continue'
         />
     </>;
 };
