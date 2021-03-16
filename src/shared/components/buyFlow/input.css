@@ -1,0 +1,41 @@
+input[type=email], input[type=number] {
+    background-color: white;
+    border: 2px solid rgba(110, 127, 126, 0.25);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 14px;
+    margin: 8px auto;
+    margin-left: 2vw;
+    transition: border-color 200ms linear 0s;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    outline: none;
+
+}
+input.error{
+    border: 2px solid rgb(237, 2, 27);
+}
+.input-field-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+}
+p.error{
+    position: absolute;
+    margin-top: 10vh;
+    pointer-events: none;
+    color: rgb(237, 2, 27);
+    font-size: 11px;
+    line-height: 10px;
+    bottom: auto;
+    transition: -ms-transform 200ms ease-in-out 0s, -webkit-transform 200ms ease-in-out 0s, transform 200ms ease-in-out 0s, opacity 200ms linear 0s;
+    opacity: 1;
+    transform: translateX(0px);
+}
+input[type=email]:focus, input[type=number]:focus {
+    border: 3px solid #555;
+}

@@ -16,15 +16,26 @@ const App = () => {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
         </header>
-        <Switch>
-          <Route path="/buy/insurance_dev">
-            <Buyflow productId={ProductIds.devIns} />
-          </Route>
-          <Route path="/">
-          <p>Welcome to Getsafe's Developer Insurance</p>
-          <Link to="/buy/insurance_dev">Get started!</Link>
-          </Route>
-        </Switch>
+        <div className="App-body">
+          <Switch>
+            <Route exact path="/buy/insurance_dev">
+              <Buyflow productId={ProductIds.devIns} />
+            </Route>
+            <Route exact path="/">
+            <p>Welcome to Getsafe's Developer Insurance</p>
+            <Link to="/buy/insurance_dev">Get started!</Link>
+            </Route>
+            <Route exact path="/purchased=dev_ins">
+              <p> Developer Insurance Done!</p>
+              <Link to="/">Home</Link>
+            </Route>
+            <Route exact >
+              <h1>OOH SNAP!</h1>
+              <p> Not Found!</p>
+              <Link to="/">Home</Link>
+            </Route>
+          </Switch>
+        </div>
       </div>
     </Router>
   );

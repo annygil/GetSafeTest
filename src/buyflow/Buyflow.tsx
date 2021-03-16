@@ -22,18 +22,36 @@ const Buyflow: React.FC<BuyflowProps> = (props) => {
         'age': 0,
     });
     const getStepCallback = (nextStep:string) => (
+
         (field: string, value: any) => {
             updateData({...collectedData, [field]: value});
             setStep(nextStep);
         }
     );
-    return <>
-        <h4>Buying {PRODUCT_IDS_TO_NAMES[props.productId]}</h4>
-        {(currentStep === 'email' && <EmailStep cb={getStepCallback('age')} />)
-        || (currentStep === 'age' && <AgeStep  cb={getStepCallback('summary')} />)
-        || (currentStep === 'summary' && <SummaryStep collectedData={collectedData} />)        
-        }
-    </>;
+    switch (currentStep) {
+        
+        case 'email':
+            return <>
+                <h4>Buying {PRODUCT_IDS_TO_NAMES[props.productId]}</h4>
+                <EmailStep collectedData={ collectedData } cb={getStepCallback('age')} />
+            </>;
+        case 'age':
+            return <>
+                <h4>Buying {PRODUCT_IDS_TO_NAMES[props.productId]}</h4>
+                <AgeStep  collectedData={ collectedData } cb={getStepCallback('summary')} />
+            </>;
+        case 'summary':
+            return <>
+                <h4>Buying {PRODUCT_IDS_TO_NAMES[props.productId]}</h4>
+                <SummaryStep collectedData={ collectedData }  cb={getStepCallback('email')}/>
+            </>;
+        default:
+            return <>
+                <h4>Buying {PRODUCT_IDS_TO_NAMES[props.productId]}</h4>
+            </>;
+            
+    }
+
 };
 
 export default Buyflow;
